@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::middleware('auth')->group(function() {
+  Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('/explorer', 'ExplorerController@index')->name('explorer');
+  Route::get('/quests', 'QuestsController@index')->name('quests');
+  Route::get('/arsenal', 'ArsenalController@index')->name('arsenal');
+  Route::get('/skills', 'SkillsController@index')->name('skills');
+  Route::get('/inventory', 'InventoryController@index')->name('inventory');
+});
+

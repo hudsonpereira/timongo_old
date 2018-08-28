@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Eczar');
 
 // Variables
 @import 'variables';
@@ -11,4 +11,19 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#app {
+  background: url("../../../public/cascade-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navbar-brand {
+  font-size: 22pt;
+}
+
+.card-header {
+  // font-color: blue;
+  // background-color: red;
 }
