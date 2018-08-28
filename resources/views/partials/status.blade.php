@@ -2,19 +2,30 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $user->nickname }}</div>
+                <div class="card-header">{{ $user->nickname }} <span class="float-right">Level {{ $user->level }}</span></div>
                 <div class="card-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed tempore minus sit laboriosam rem laudantium ex, porro ullam! Labore, ab.</p>
                     <div class="row">
                         <!-- Bars -->
                         <div class="col-md-6">
-                            <div class="row text-center">
+                            <div class="row">
                                 <div class="col-md-2">
                                     <i class="em em-heart"></i>
                                 </div>
                                 <div class="col-md-10">
                                     <div class="progress" style="height:100%">
                                         <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $user->hitpoints }}%" aria-valuenow="{{ $user->hitpoints }}" aria-valuemin="0" aria-valuemax="{{ $user->max_hitpoints }}">{{ $user->hitpoints . '/' . $user->max_hitpoints}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-md-2">
+                                    <i class="em em-crossed_swords"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="progress" style="height:100%">
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ $user->hitpoints }}%" aria-valuenow="{{ $user->hitpoints }}" aria-valuemin="0" aria-valuemax="{{ $user->max_hitpoints }}">{{ $user->hitpoints . '/' . $user->max_hitpoints}}</div>
                                     </div>
                                 </div>
                             </div>

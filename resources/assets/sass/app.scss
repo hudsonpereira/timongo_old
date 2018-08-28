@@ -9,7 +9,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
-  background-color: #fff;
+  background-color: rgba(#fff, 1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -25,5 +25,10 @@
 
 .card-header {
   font-size: 16pt;
-  // background-color: red;
+  background-color: rgba(176, 127, 92, 0.5);
+  font-color: white
+}
+
+.card-body {
+    background-color: rgba(#daa2a7, 0.1);
 }

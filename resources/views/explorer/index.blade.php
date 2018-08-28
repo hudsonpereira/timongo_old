@@ -33,9 +33,9 @@
                     <div class="list-group">
                         @foreach($maps as $map)
                             <form action="{{ route('travel', $map->id)}}" method="POST">
-                                {{ csrf_field() }}
+                                @csrf
 
-                                <button role="submit" class="list-group-item disabled {{ $userMap->id == $map->id ? "active" : "" }}">{{ $map->name }}</button>
+                                <button class="list-group-item list-group-item-action {{ $userMap->id == $map->id ? "active" : "" }}" style="cursor: pointer">{{ $map->name }}</button>
                             </form>
                         @endforeach
                     </div>
