@@ -14,18 +14,31 @@
                                 </div>
                                 <div class="col-md-10">
                                     <div class="progress" style="height:100%">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $user->hitpoints }}%" aria-valuenow="{{ $user->hitpoints }}" aria-valuemin="0" aria-valuemax="{{ $user->max_hitpoints }}">{{ $user->hitpoints . '/' . $user->max_hitpoints}}</div>
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $user->current_hitpoints }}%" aria-valuenow="{{ $user->current_hitpoints }}" aria-valuemin="0" aria-valuemax="{{ $user->max_hitpoints }}">{{ $user->current_hitpoints . '/' . $user->max_hitpoints}}</div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Experience -->
                             <div class="row mt-2">
                                 <div class="col-md-2">
                                     <i class="em em-crossed_swords"></i>
                                 </div>
                                 <div class="col-md-10">
                                     <div class="progress" style="height:100%">
-                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ $user->hitpoints }}%" aria-valuenow="{{ $user->hitpoints }}" aria-valuemin="0" aria-valuemax="{{ $user->max_hitpoints }}">{{ $user->hitpoints . '/' . $user->max_hitpoints}}</div>
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ $user->experience * 100 / $user->tnl() }}%" aria-valuenow="{{ $user->experience }}" aria-valuemin="0" aria-valuemax="{{ $user->max_hitpoints }}">{{ $user->experience . '/' . $user->tnl()}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Energy -->
+                            <div class="row mt-2">
+                                <div class="col-md-2">
+                                    <i class="em em-zap"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="progress" style="height:100%">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $user->current_energy * 100 / $user->max_energy }}%" aria-valuenow="{{ $user->current_energy }}" aria-valuemin="0" aria-valuemax="{{ $user->max_energy }}">{{ $user->current_energy . '/' . $user->max_energy}}</div>
                                     </div>
                                 </div>
                             </div>

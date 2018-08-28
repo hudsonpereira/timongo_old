@@ -27,19 +27,27 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    function map() {
+    function map()
+    {
         return $this->belongsTo(Map::class);
     }
 
-    function vocation() {
+    function vocation()
+    {
         return $this->belongsTo(Vocation::class);
     }
 
-    function getTitle() {
+    function getTitle()
+    {
         if ($this->gender == 1) {
             return "o {$this->vocation->name}";
         }
 
         return "a {$this->vocation->female_name}";
+    }
+
+    function tnl()
+    {
+        return $this->level * 100;
     }
 }

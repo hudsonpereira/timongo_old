@@ -16,7 +16,7 @@
 #app {
   background: url("../../../public/cascade-background.jpg") no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 }
 
 .navbar-brand {
@@ -26,7 +26,7 @@
 .card-header {
   font-size: 16pt;
   background-color: rgba(176, 127, 92, 0.5);
-  font-color: white
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .card-body {
@@ -42,6 +42,6 @@
   .nav-link {
     background-color: #91665c;
     border-radius: 10px;
-    color: white !important;
+    color: rgba(#fff, 0.5) !important;
   }
 }

@@ -10480,7 +10480,7 @@ a.text-dark:focus {
 #app {
   background: url(/images/cascade-background.jpg?8767dc99e982cffc5035a3f3811daab2) no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 }
 
 .navbar-brand {
@@ -10490,7 +10490,7 @@ a.text-dark:focus {
 .card-header {
   font-size: 16pt;
   background-color: rgba(176, 127, 92, 0.5);
-  font-color: white;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .card-body {
@@ -10505,6 +10505,6 @@ a.text-dark:focus {
 .nav-item.active .nav-link {
   background-color: #91665c;
   border-radius: 10px;
-  color: white !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 

@@ -12,6 +12,7 @@ return [
     |
     */
 
-    'initial_hitpoints' => 100
+    'initial_hitpoints' => 100,
+    'initial_energy' => 30,
 
 ];

@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/explorer', 'ExplorerController@index')->name('explorer');
     Route::post('/explorer/{mapId}', 'ExplorerController@travel')->name('travel');
+    Route::post('/battle/{respawnId}', 'ExplorerController@battle')->name('pve-battle');
 
     Route::get('/quests', 'QuestsController@index')->name('quests');
     Route::get('/arsenal', 'ArsenalController@index')->name('arsenal');

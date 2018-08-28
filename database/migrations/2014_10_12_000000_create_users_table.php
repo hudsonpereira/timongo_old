@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $initialHitpoints = config('rpg.initial_hitpoints');
+            $initialEnergy = config('rpg.initial_energy');
 
             $table->increments('id');
             $table->string('name');
@@ -22,8 +23,15 @@ class CreateUsersTable extends Migration
             $table->integer('gender')->unsigned()->default(1);
             $table->integer('level')->unsigned()->default(1);
             $table->integer('gold')->unsigned()->default(0);
-            $table->integer('hitpoints')->unsigned()->default($initialHitpoints);
+
+            $table->integer('attack')->unsigned()->default(1);
+            $table->integer('defence')->unsigned()->default(1);
+
+            $table->integer('current_hitpoints')->unsigned()->default($initialHitpoints);
             $table->integer('max_hitpoints')->unsigned()->default($initialHitpoints);
+
+            $table->integer('current_energy')->unsigned()->default($initialEnergy);
+            $table->integer('max_energy')->unsigned()->default($initialEnergy);
 
             $table->integer('experience')->unsigned()->default(0);
 

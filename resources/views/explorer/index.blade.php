@@ -20,7 +20,28 @@
 
                     <p class="text-justify map-description">{{ $userMap->description }}</p>
 
-                    <img src="{{ asset('images/badger.gif') }}" alt="">
+                    <h1 class="display-5">Criaturas</h1>
+
+                    <div class="row">
+                        @foreach($respawns as $respawn)
+                            @php
+                                $visibleElementId = str_random(10);
+                            @endphp
+                            <div class="col-md-3 my-3 text-center">
+                                <form id="{{ $visibleElementId }}" action="{{ route('pve-battle', $respawn->token) }}" method="POST">
+                                    @csrf
+                                    <a href="#" onClick="event.preventDefault(); document.getElementById('{{ $visibleElementId }}').submit() ">
+                                        <img src="{{ asset("images/{$respawn->monster->image}.gif") }}" class="mb-1" alt="">
+                                    </a>
+                                </form>
+                                <p class="mb-1">{{ $respawn->monster->name }}</p>
+                                <p class="mb-1">{{ "Level {$respawn->level}" }}</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $respawn->current_hitpoints * 100 / $respawn->max_hitpoints }}%" aria-valuenow="{{ $respawn->current_hitpoints }}" aria-valuemin="0" aria-valuemax="{{ $respawn->max_hitpoints }}">{{ $respawn->current_hitpoints . '/' . $respawn->max_hitpoints}}</div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
