@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\User;
+use App\Http\Controllers\Controller;
+use App\Vocation;
 
 class RegisterController extends Controller
 {
@@ -40,6 +41,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $vocations = Vocation::all();
+
+        return view('auth.register', compact('vocations'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -53,6 +61,8 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'nickname' => 'required|string|min:2|max:20|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'vocation_id' => 'required|exists:vocations,id',
+            'gender' => 'required|in:1,2',
         ]);
     }
 
@@ -68,6 +78,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'nickname' => $data['nickname'],
+            'vocation_id' => $data['vocation_id'],
+            'gender' => $data['gender'],
             'password' => Hash::make($data['password']),
         ]);
     }

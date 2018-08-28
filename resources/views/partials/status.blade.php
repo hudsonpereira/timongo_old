@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $user->nickname }} <span class="float-right">Level {{ $user->level }}</span></div>
+                <div class="card-header">{{ $user->nickname . ', ' . $user->getTitle() }} <span class="float-right">Level {{ $user->level }}</span></div>
                 <div class="card-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed tempore minus sit laboriosam rem laudantium ex, porro ullam! Labore, ab.</p>
                     <div class="row">

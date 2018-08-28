@@ -16,6 +16,7 @@ class CreateVocationsTable extends Migration
         Schema::create('vocations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('female_name');
             $table->string('description')->nullable();
             $table->timestamps();
         });

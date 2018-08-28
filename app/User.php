@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'nickname'
+        'name', 'email', 'password', 'nickname', 'vocation_id', 'gender'
     ];
 
     /**
@@ -29,5 +29,17 @@ class User extends Authenticatable
 
     function map() {
         return $this->belongsTo(Map::class);
+    }
+
+    function vocation() {
+        return $this->belongsTo(Vocation::class);
+    }
+
+    function getTitle() {
+        if ($this->gender == 1) {
+            return "o {$this->vocation->name}";
+        }
+
+        return "a {$this->vocation->female_name}";
     }
 }

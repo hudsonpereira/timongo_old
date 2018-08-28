@@ -12,10 +12,10 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome do jogador') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Escreva seu nome completo" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar senha') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -70,6 +70,41 @@
                                 @if ($errors->has('nickname'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('nickname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="vocation_id" class="col-md-4 col-form-label text-md-right">{{ __('Vocação') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="vocation_id" id="vocation_id" class="form-control{{ $errors->has('vocation_id') ? ' is-invalid' : '' }}" required>
+                                    @foreach($vocations as $vocation)
+                                        <option value="{{ $vocation->id }}">{{ $vocation->name . ' / ' . $vocation->female_name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('vocation_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('vocation_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gênero') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="gender" id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" required>
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Feminino</option>
+                                </select>
+
+                                @if ($errors->has('gender'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('gender') }}</strong>
                                     </span>
                                 @endif
                             </div>

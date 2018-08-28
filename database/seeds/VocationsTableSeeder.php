@@ -14,16 +14,20 @@ class VocationsTableSeeder extends Seeder
     {
         $vocations = [
             [
-                'name' => 'Cavaleiro'
+                'name' => 'Cavaleiro',
+                'female_name' => 'Amazona',
             ],
             [
-                'name' => 'Druida'
+                'name' => 'Druida',
+                'female_name' => 'Druidesa',
             ],
             [
-                'name' => 'Paladino'
+                'name' => 'Paladino',
+                'female_name' => 'Paladina',
             ],
             [
-                'name' => 'Feiticeiro'
+                'name' => 'Feiticeiro',
+                'female_name' => 'Feiticeira',
             ],
         ];
 
