@@ -36,27 +36,27 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @auth
-                            <li class="nav-item">
+                            <li class="nav-item {{ Route::current()->getName() == 'home' ? "active" : "" }}">
                                 <a href="{{ route('home') }}" class="nav-link">Início</a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item {{ Route::current()->getName() == 'explorer' ? "active" : "" }}">
                                 <a href="{{ route('explorer') }}" class="nav-link">Explorar</a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item {{ Route::current()->getName() == 'quests' ? "active" : "" }}">
                                 <a href="{{ route('quests') }}" class="nav-link">Missões</a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item {{ Route::current()->getName() == 'arsenal' ? "active" : "" }}">
                                 <a href="{{ route('arsenal') }}" class="nav-link">Arsenal</a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item {{ Route::current()->getName() == 'skills' ? "active" : "" }}">
                                 <a href="{{ route('skills') }}" class="nav-link">Habilidades</a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item {{ Route::current()->getName() == 'inventory' ? "active" : "" }}">
                                 <a href="{{ route('inventory') }}" class="nav-link">Espólios</a>
                             </li>
                         @endauth

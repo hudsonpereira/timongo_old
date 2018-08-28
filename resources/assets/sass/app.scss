@@ -30,5 +30,18 @@
 }
 
 .card-body {
-    background-color: rgba(#daa2a7, 0.1);
+  background-color: rgba(#daa2a7, 0.1);
+}
+
+.list-group-item.active {
+  background-color: #91665c;
+  border-style: none;
+}
+
+.nav-item.active {
+  .nav-link {
+    background-color: #91665c;
+    border-radius: 10px;
+    color: white !important;
+  }
 }

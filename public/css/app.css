@@ -10497,3 +10497,14 @@ a.text-dark:focus {
   background-color: rgba(218, 162, 167, 0.1);
 }
 
+.list-group-item.active {
+  background-color: #91665c;
+  border-style: none;
+}
+
+.nav-item.active .nav-link {
+  background-color: #91665c;
+  border-radius: 10px;
+  color: white !important;
+}
+
