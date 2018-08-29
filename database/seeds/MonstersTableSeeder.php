@@ -13,8 +13,8 @@ class MonstersTableSeeder extends Seeder
     public function run()
     {
         $monsters = [
-            $this->monster('Gamba', 'badger', 1, 2, 10),
-            $this->monster('Sapo verde', 'green-frog', 1, 2, 10),
+            $this->monster('Gamba', 'badger', 1, 2, 10, 1.2, 1.3, 5.5),
+            $this->monster('Sapo verde', 'green-frog', 1, 2, 10, 1.2, 1.3, 6.5),
         ];
 
         foreach ($monsters as $monster) {
@@ -22,13 +22,16 @@ class MonstersTableSeeder extends Seeder
         }
     }
 
-    private function monster($name, $image, $attack, $defence, $hitpoints) {
+    private function monster($name, $image, $attack, $defence, $hitpoints, $attackRatio, $defenceRatio, $hitpointsRatio) {
         return [
             'name' => $name,
             'image' => $image,
             'attack' => $attack,
             'defence' => $defence,
-            'hitpoints' => $hitpoints
+            'hitpoints' => $hitpoints,
+            'attack_scale_ratio' => $attackRatio,
+            'defence_scale_ratio' => $defenceRatio,
+            'hitpoints_scale_ratio' => $hitpointsRatio,
         ];
     }
 }

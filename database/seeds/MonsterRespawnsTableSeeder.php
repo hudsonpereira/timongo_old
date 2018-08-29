@@ -14,8 +14,8 @@ class MonsterRespawnsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->createRespawns('Gamba', 'Dalaran (centro)', 3, 10);
-        $this->createRespawns('Sapo Verde', 'Dalaran (centro)', 10, 10);
+        $this->createRespawns('Gamba', 'Dalaran (centro)', 3, 5);
+        $this->createRespawns('Sapo Verde', 'Dalaran (centro)', 5, 5);
     }
 
     function createRespawns($monsterName, $mapName, $howMany, $levelRange) {
@@ -24,9 +24,9 @@ class MonsterRespawnsTableSeeder extends Seeder
 
         for ($i=0; $i < $howMany; $i++) {
             $level = rand($map->level, $map->level + $levelRange);
-            $hitpoints = $level * $monster->hitpoints;
-            $attack = $monster->attack * $level;
-            $defence = $monster->defence * $level;
+            $hitpoints = $monster->hitpoints + round($monster->hitpoints_scale_ratio * $level);
+            $attack = $monster->attack + round($monster->attack_scale_ratio * $level);
+            $defence = $monster->defence + round($monster->defence_scale_ratio * $level);
 
             MonsterRespawn::create([
                 'monster_id' => $monster->id,

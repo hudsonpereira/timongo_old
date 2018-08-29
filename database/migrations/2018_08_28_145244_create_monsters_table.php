@@ -20,6 +20,9 @@ class CreateMonstersTable extends Migration
             $table->string('hitpoints');
             $table->integer('attack')->unsigned();
             $table->integer('defence')->unsigned();
+            $table->float('attack_scale_ratio');
+            $table->float('defence_scale_ratio');
+            $table->float('hitpoints_scale_ratio');
             $table->timestamps();
         });
     }
