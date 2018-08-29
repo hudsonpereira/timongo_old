@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <i class="em em-question"></i>
                 </div>
             </div>
         </div>

@@ -67,10 +67,10 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
                             </li>
                         @else
                             <li class="nav-item dropdown">
@@ -82,7 +82,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Sair') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -101,5 +101,9 @@
             @yield('content')
         </main>
     </div>
+
+    <footer class="container p-4">
+        <p><i class="em em-game_die"></i> <span class="bold ml-2">Timongo RPG.</span></p>
+    </footer>
 </body>
 </html>
