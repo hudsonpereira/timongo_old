@@ -20,12 +20,13 @@ class CreateMonsterRespawnsTable extends Migration
             $table->integer('current_hitpoints')->unsigned();
             $table->integer('max_hitpoints')->unsigned();
             $table->integer('level')->unsigned();
-            $table->integer('map_id')->unsigned();
+            $table->integer('area_id')->unsigned();
             $table->integer('attack')->unsigned();
             $table->integer('defence')->unsigned();
             $table->integer('experience')->unsigned();
             $table->boolean('is_active')->default(true);
             $table->dateTime('cleared_at')->nullable();
+            $table->unsignedInteger('respawn_time')->default(1); // in minutes
             $table->timestamps();
         });
     }

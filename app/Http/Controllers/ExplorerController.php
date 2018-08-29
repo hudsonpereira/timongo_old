@@ -11,7 +11,7 @@ class ExplorerController extends Controller
 {
     public function index()
     {
-        $maps = Map::all();
+        $maps = Map::with('areas')->all();
         $userMap = Auth::user()->map;
 
         $respawns = $userMap->respawns()->with('monster')->get();

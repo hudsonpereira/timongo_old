@@ -6,7 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Map extends Model
 {
-    function respawns() {
+    public $fillable = [
+        'name', 'description', 'level'
+    ];
+
+    function respawns()
+    {
         return $this->hasMany(MonsterRespawn::class);
+    }
+
+    function areas()
+    {
+        return  $this->hasMany(Area::class);
     }
 }

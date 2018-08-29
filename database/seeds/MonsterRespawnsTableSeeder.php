@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Monster;
 use App\MonsterRespawn;
-use App\Map;
+use App\Area;
 
 class MonsterRespawnsTableSeeder extends Seeder
 {
@@ -14,13 +14,13 @@ class MonsterRespawnsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->createRespawns('Gamba', 'Dalaran (centro)', 3, 5);
-        $this->createRespawns('Sapo Verde', 'Dalaran (centro)', 5, 5);
+        $this->createRespawns('Gamba', 'Centro Comercial', 3, 5);
+        $this->createRespawns('Sapo Verde', 'Centro Comercial', 5, 5);
     }
 
     function createRespawns($monsterName, $mapName, $howMany, $levelRange) {
         $monster = Monster::whereName($monsterName)->first();
-        $map = Map::whereName($mapName)->first();
+        $map = Area::whereName($mapName)->first();
 
         for ($i=0; $i < $howMany; $i++) {
             $level = rand($map->level, $map->level + $levelRange);
@@ -30,7 +30,7 @@ class MonsterRespawnsTableSeeder extends Seeder
 
             MonsterRespawn::create([
                 'monster_id' => $monster->id,
-                'map_id' => $map->id,
+                'area_id' => $map->id,
                 'current_hitpoints' => $hitpoints,
                 'max_hitpoints' => $hitpoints,
                 'level' => $level,
