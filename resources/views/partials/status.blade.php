@@ -7,7 +7,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed tempore minus sit laboriosam rem laudantium ex, porro ullam! Labore, ab.</p>
                     <div class="row">
                         <!-- Bars -->
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="row">
                                 <div class="col-md-2">
                                     <i class="em em-heart"></i>
@@ -40,6 +40,16 @@
                                     <div class="progress" style="height:100%">
                                         <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $user->current_energy * 100 / $user->max_energy }}%" aria-valuenow="{{ $user->current_energy }}" aria-valuemin="0" aria-valuemax="{{ $user->max_energy }}">{{ $user->current_energy . '/' . $user->max_energy}}</div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <!-- Mana -->
+                            <div class="row mt-2">
+                                <div class="col-md-2">
+                                    <i class="em em-gem"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    <p class="text-center">100</p>
                                 </div>
                             </div>
                         </div>

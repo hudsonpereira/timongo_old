@@ -37,7 +37,7 @@ class MonsterRespawnsTableSeeder extends Seeder
                 'attack' => $attack,
                 'defence' => $defence,
                 'experience' => 1,
-                'token' => str_random(10),
+                'token' => MonsterRespawn::generateToken(),
             ]);
         }
     }

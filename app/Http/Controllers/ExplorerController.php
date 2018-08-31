@@ -44,7 +44,10 @@ class ExplorerController extends Controller
     }
 
     function battle(Request $request, $respawnToken) {
-        $respawn = MonsterRespawn::whereToken($respawnToken)->with('monster')->firstOrFail();
+        $respawn = MonsterRespawn::with('monster')
+            ->whereToken($respawnToken)
+            ->firstOrFail();
+
         $user = Auth::user();
 
         $log = [];
