@@ -10,4 +10,9 @@ class MonsterRespawn extends Model
     {
         return $this->belongsTo(Monster::class);
     }
+
+    function setCurrentHitpointsAttribute($value)
+    {
+        $this->attributes['current_hitpoints'] = ($value > 0) ? $value : 0;
+    }
 }

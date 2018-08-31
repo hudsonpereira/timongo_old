@@ -19,7 +19,9 @@ class ExplorerController extends Controller
 
         $maps = Map::all();
 
-        $respawns = $area->respawns()->with('monster')->get();
+        $respawns = $area->respawns()
+            ->whereNull('cleared_at')
+            ->with('monster')->get();
 
         return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns'));
     }
@@ -64,6 +66,7 @@ class ExplorerController extends Controller
         $user->current_energy -= 1;
 
         $win = false;
+        $carbonNow = Carbon::now();
 
         if ($user->current_hitpoints <= 0) {
             // Lose
@@ -72,17 +75,19 @@ class ExplorerController extends Controller
             $user->current_hitpoints = 0;
             $user->current_energy -= 3;
 
-            $user->dead_until = Carbon::now()->addSeconds($user->level * 10);
+            $user->dead_until = $carbonNow->addSeconds($user->level * 10);
 
-            if ($user->current_energy < 0) {
-                $user->current_energy = 0;
-            }
+
         } else {
             // Win
             $win = true;
             $user->experience += 1;
             $log[] = "{$user->name} venceu!";
+
+            $respawn->cleared_at = $carbonNow;
         }
+
+        // safe check energy value
 
         $user->save();
         $respawn->save();

@@ -48,6 +48,18 @@ class User extends Authenticatable
         return $this->belongsTo(Vocation::class);
     }
 
+    // ACESSORS AND MUTATORS
+
+    function setCurrentHitpointsAttribute($value)
+    {
+        $this->attributes['current_hitpoints'] = ($value > 0) ? $value : 0;
+    }
+
+    function setCurrentEnergyAttribute($value)
+    {
+        $this->attributes['current_energy'] = ($value > 0) ? $value : 0;
+    }
+
     function getTitle()
     {
         if ($this->gender == 1) {
