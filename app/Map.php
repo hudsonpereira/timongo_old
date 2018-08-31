@@ -10,11 +10,6 @@ class Map extends Model
         'name', 'description', 'level'
     ];
 
-    function respawns()
-    {
-        return $this->hasMany(MonsterRespawn::class);
-    }
-
     function areas()
     {
         return  $this->hasMany(Area::class);

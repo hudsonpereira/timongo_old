@@ -21,7 +21,7 @@ class MapsTableSeeder extends Seeder
                 'areas' => [
                         [
                             'name' => 'Centro comercial',
-                            'level' => 1
+                            'level' => 1,
                         ],
                 ]
             ],
@@ -32,7 +32,7 @@ class MapsTableSeeder extends Seeder
                 'areas' => [
                         [
                             'name' => 'Entrada',
-                            'level' => 1
+                            'level' => 1,
                         ],
                 ]
             ],
@@ -43,7 +43,7 @@ class MapsTableSeeder extends Seeder
                 'areas' => [
                         [
                             'name' => 'Cerco',
-                            'level' => 1
+                            'level' => 1,
                         ],
                 ]
             ],
@@ -53,7 +53,7 @@ class MapsTableSeeder extends Seeder
                 'areas' => [
                         [
                             'name' => 'Pilares',
-                            'level' => 1
+                            'level' => 1,
                         ],
                 ]
             ],
@@ -63,7 +63,7 @@ class MapsTableSeeder extends Seeder
                 'areas' => [
                         [
                             'name' => 'Entrada lateral',
-                            'level' => 1
+                            'level' => 1,
                         ],
                 ]
             ],
@@ -73,14 +73,14 @@ class MapsTableSeeder extends Seeder
                 'areas' => [
                         [
                             'name' => 'Covil do Dragão Infernal',
-                            'level' => 1
+                            'level' => 1,
                         ],
                 ]
             ],
         ];
 
         foreach ($maps as $map) {
-            $mapModel = Map::create(array_only($map, ['name', 'level', 'description']));
+            $mapModel = Map::create(array_only($map, ['name', 'description']));
 
             foreach($map['areas'] as $area) {
                 $mapModel->areas()->create($area);

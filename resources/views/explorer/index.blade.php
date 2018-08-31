@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Explorar') }} - {{ $userMap->name }}</div>
+                <div class="card-header">{{ __('Explorar') }} - {{ $currentMap->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,7 +18,7 @@
                         </div>
                     @endif
 
-                    <p class="text-justify map-description">{{ $userMap->description }}</p>
+                    <p class="text-justify map-description">{{ $currentMap->description }}</p>
 
                     <h1 class="display-5">Criaturas</h1>
 
@@ -56,7 +56,7 @@
                             <form action="{{ route('travel', $map->id)}}" method="POST">
                                 @csrf
 
-                                <button class="list-group-item list-group-item-action {{ $userMap->id == $map->id ? "active" : "" }}" style="cursor: pointer">{{ $map->name }}</button>
+                                <button class="list-group-item list-group-item-action {{ $currentMap->id == $map->id ? "active" : "" }}" style="cursor: pointer">{{ $map->name }}</button>
                             </form>
                         @endforeach
                     </div>

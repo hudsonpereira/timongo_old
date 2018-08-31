@@ -11,12 +11,16 @@ class ExplorerController extends Controller
 {
     public function index()
     {
-        $maps = Map::with('areas')->all();
-        $userMap = Auth::user()->map;
+        $user = Auth::user();
 
-        $respawns = $userMap->respawns()->with('monster')->get();
+        $area = $user->area;
+        $currentMap = $user->map;
 
-        return view('explorer.index', compact('maps', 'userMap', 'respawns'));
+        $maps = Map::all();
+
+        $respawns = $area->respawns()->with('monster')->get();
+
+        return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns'));
     }
 
     public function travel(Request $request, $mapId)
@@ -25,6 +29,9 @@ class ExplorerController extends Controller
         $map = Map::findOrFail($mapId);
 
         $user->map_id = $mapId;
+        $user->area_id = $map->areas()->first()->id;
+
+        // dd($user->area_id);
 
         $user->save();
 
@@ -69,7 +76,7 @@ class ExplorerController extends Controller
         $user->save();
         $respawn->save();
 
-        $request->session()->flash('success', join(" ", $log));
+        $request->session()->flash('success', join("<br />", $log));
 
         return redirect()->back();
     }

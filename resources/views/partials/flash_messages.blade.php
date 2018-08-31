@@ -3,7 +3,7 @@
         <div class="col-md-8">
             @if(session()->has('success'))
                 <div class="alert alert-success" role="alert">
-                  {{ session('success') }}
+                  {!! session('success') !!}
                 </div>
             @endif
         </div>

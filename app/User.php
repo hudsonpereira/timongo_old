@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->belongsTo(Map::class);
     }
 
+    function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
     function vocation()
     {
         return $this->belongsTo(Vocation::class);

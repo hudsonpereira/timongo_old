@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <p>Seja bem vindo <b>{{ Auth::user()->nickname}}</b>, aqui você poderá ler os guias do jogo.</p>
                 </div>
             </div>
         </div>
