@@ -17,8 +17,8 @@ class CreateUsersAreasRelationship extends Migration
             $table->unsignedInteger('map_id')->default(1);
             $table->unsignedInteger('area_id')->default(1);
 
-            $table->foreign('area_id')->references('id')->on('areas');
-            $table->foreign('map_id')->references('id')->on('maps');
+            // $table->foreign('area_id')->references('id')->on('areas');
+            // $table->foreign('map_id')->references('id')->on('maps');
         });
     }
 
@@ -30,8 +30,8 @@ class CreateUsersAreasRelationship extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['area_id']);
-            $table->dropForeign(['map_id']);
+            // $table->dropForeign(['area_id']);
+            // $table->dropForeign(['map_id']);
         });
     }
 }

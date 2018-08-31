@@ -16,7 +16,7 @@ class CreateUsersVocationsRelationship extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedInteger('vocation_id')->default(1);
 
-            $table->foreign('vocation_id')->references('id')->on('vocations');
+            // $table->foreign('vocation_id')->references('id')->on('vocations');
         });
     }
 
@@ -28,7 +28,7 @@ class CreateUsersVocationsRelationship extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['vocation_id']);
+            // $table->dropForeign(['vocation_id']);
         });
     }
 }
