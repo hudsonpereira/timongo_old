@@ -53,5 +53,22 @@
                 </div>
             </div>
         </div>
+        @if ($user->isDead())
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><i class="em em-skull"></i> Você está <b>morto</b>!</div>
+                    <div class="card-body">
+                        @if($user->dead_until >= Carbon\Carbon::now())
+                            <p class="alert alert-warning">Você poderá ressucitar <b>{{ $user->dead_until->diffForHumans() }}</b>. Recarregue a página depois deste horário.</p>
+                        @else
+                            <form action="{{ route('revive') }}" method="POST">
+                                @csrf
+                                <button class="btn-primary">Reviver</button>
+                            </form>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 </div>

@@ -41,6 +41,8 @@ class CreateUsersTable extends Migration
             $table->string('nickname')->unique();
             $table->string('password');
 
+            $table->datetime('dead_until')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

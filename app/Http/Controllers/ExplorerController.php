@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Map;
 use App\MonsterRespawn;
 use Auth;
+use Carbon\Carbon;
 
 class ExplorerController extends Controller
 {
@@ -61,22 +62,32 @@ class ExplorerController extends Controller
         }
 
         $user->current_energy -= 1;
-        $user->experience += 1;
+
+        $win = false;
 
         if ($user->current_hitpoints <= 0) {
             // Lose
+            $log[] = "{$user->name} foi derrotado!";
+
             $user->current_hitpoints = 0;
             $user->current_energy -= 3;
+
+            $user->dead_until = Carbon::now()->addSeconds($user->level * 10);
 
             if ($user->current_energy < 0) {
                 $user->current_energy = 0;
             }
+        } else {
+            // Win
+            $win = true;
+            $user->experience += 1;
+            $log[] = "{$user->name} venceu!";
         }
 
         $user->save();
         $respawn->save();
 
-        $request->session()->flash('success', join("<br />", $log));
+        $request->session()->flash($win ? 'success' : 'error', join("<br />", $log));
 
         return redirect()->back();
     }
