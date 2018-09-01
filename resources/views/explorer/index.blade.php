@@ -60,9 +60,25 @@
                             </form>
                         @endforeach
                     </div>
-
                 </div>
             </div>
+
+            @if ($users->isNotEmpty())
+                <div class="card my-md-2">
+                    <div class="card-header">{{ __('Jogadores neste mapa') }}</div>
+
+                    <div class="card-body">
+                        <div class="list-group">
+                            @foreach($users as $user)
+                                <!-- <form action="{{ route('travel', $user->id)}}" method="POST">
+                                    @csrf -->
+                                {{ "{$user->nickname}, {$user->getTitle()} - Level {$user->level}" }}
+                                <!-- </form> -->
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </div>

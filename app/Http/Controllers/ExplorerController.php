@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Map;
 use App\MonsterRespawn;
 use Auth;
+use App\User;
 use Carbon\Carbon;
 
 class ExplorerController extends Controller
@@ -16,6 +17,9 @@ class ExplorerController extends Controller
 
         $area = $user->area;
         $currentMap = $user->map;
+        $users = User::whereMapId($currentMap->id)
+            ->where('id', '!=', $user->id)
+            ->get();
 
         $maps = Map::all();
 
@@ -23,7 +27,7 @@ class ExplorerController extends Controller
             ->whereNull('cleared_at')
             ->with('monster')->get();
 
-        return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns'));
+        return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns', 'users'));
     }
 
     public function travel(Request $request, $mapId)
