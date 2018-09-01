@@ -3,16 +3,17 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\MonsterRespawn as MonsterRespawnModel;
+use App\User;
+use DB;
 
-class MonsterRespawn extends Command
+class HealthRegen extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'rpg:monster_respawn';
+    protected $signature = 'rpg:health';
 
     /**
      * The console command description.
@@ -38,11 +39,10 @@ class MonsterRespawn extends Command
      */
     public function handle()
     {
-        $respawns = MonsterRespawnModel::whereNotNull('cleared_at')
-            ->get();
+        $users = User::whereRaw('current_hitpoints < max_hitpoints')->get();
 
-        foreach ($respawns as $respawn) {
-            $respawn->doRespawn()
+        foreach ($users as $user) {
+            $user->procHealthRegen()
                 ->save();
         }
     }

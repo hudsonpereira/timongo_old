@@ -17,4 +17,9 @@ class Area extends Model
     {
         return $this->hasMany(MonsterRespawn::class);
     }
+
+    function questGivers()
+    {
+        return $this->hasMany(QuestGiver::class);
+    }
 }

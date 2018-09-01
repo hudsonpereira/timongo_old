@@ -27,7 +27,10 @@ class Kernel extends ConsoleKernel
         $schedule->command('rpg:energy')
                  ->everyMinute();
 
-         $schedule->command('rpg:monster_respawn')
+        $schedule->command('rpg:monster_respawn')
+                 ->everyMinute();
+
+        $schedule->command('rpg:health')
                  ->everyMinute();
     }
 

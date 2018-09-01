@@ -49,7 +49,7 @@
                                     <i class="em em-gem"></i>
                                 </div>
                                 <div class="col-md-10">
-                                    <p class="text-center">100</p>
+                                    <p class="text-center">{{ $user->mana_stone }}</p>
                                 </div>
                             </div>
                         </div>

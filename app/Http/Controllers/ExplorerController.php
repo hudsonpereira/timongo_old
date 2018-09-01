@@ -55,8 +55,10 @@ class ExplorerController extends Controller
         $user = Auth::user();
 
         $log = [];
+        $turnCounter = 0;
 
         while($user->current_hitpoints > 0 && $respawn->current_hitpoints > 0) {
+            $turnCounter++;
             $userDamage = $user->attack * rand(1, 6);
             $respawn->current_hitpoints -= $userDamage;
             $log[] = "{$user->name} causou " . $userDamage . ' a ' . $respawn->monster->name;
@@ -81,6 +83,7 @@ class ExplorerController extends Controller
 
             $user->current_hitpoints = 0;
             $user->current_energy -= 3;
+            $user->mana_stone += round($turnCounter * 0.2);
 
             $user->dead_until = $carbonNow->addSeconds($user->level * 10);
 

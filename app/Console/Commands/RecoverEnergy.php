@@ -43,11 +43,5 @@ class RecoverEnergy extends Command
             ->update([
                 'current_energy' => DB::raw('current_energy + 1')
             ]);
-
-        echo $users;
-
-        // foreach ($users as $user) {
-        //     # code...
-        // }
     }
 }

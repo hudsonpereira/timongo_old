@@ -86,4 +86,15 @@ class User extends Authenticatable
 
         return $this;
     }
+
+    function procHealthRegen()
+    {
+        $this->current_hitpoints += 10;
+
+        if ($this->current_hitpoints > $this->max_hitpoints) {
+            $this->current_hitpoints = $this->max_hitpoints;
+        }
+
+        return $this;
+    }
 }
