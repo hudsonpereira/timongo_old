@@ -83,7 +83,6 @@ class ExplorerController extends Controller
 
             $user->current_hitpoints = 0;
             $user->current_energy -= 3;
-            $user->mana_stone += round($turnCounter * 0.2);
 
             $user->dead_until = $carbonNow->addSeconds($user->level * 10);
 
@@ -91,8 +90,15 @@ class ExplorerController extends Controller
         } else {
             // Win
             $win = true;
-            $user->experience += 1;
+            $experienceEarned = 1;
+            $manaStones = round($turnCounter * 0.4);
+
+            $user->experience += $experienceEarned;
+            $user->mana_stone += $manaStones;
+
             $log[] = "{$user->name} venceu!";
+            $log[] = "Você recebeu {$experienceEarned} ponto(s) de experiência.";
+            $log[] =  "Você recebeu {$manaStones} pedra(s) de mana.";
 
             $respawn->cleared_at = $carbonNow;
         }
