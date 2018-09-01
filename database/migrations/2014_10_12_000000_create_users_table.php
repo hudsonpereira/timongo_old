@@ -27,16 +27,18 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('armor')->nullable(); // equipment id relation
             $table->unsignedInteger('weapon_id')->nullable(); // weapon id relation
 
-            $table->integer('attack')->unsigned()->default(1);
-            $table->integer('defence')->unsigned()->default(1);
+            $table->unsignedInteger('attack')->default(1);
+            $table->unsignedInteger('defence')->default(1);
 
-            $table->integer('current_hitpoints')->unsigned()->default($initialHitpoints);
-            $table->integer('max_hitpoints')->unsigned()->default($initialHitpoints);
+            $table->unsignedInteger('mana_stone')->default(0);
 
-            $table->integer('current_energy')->unsigned()->default($initialEnergy);
-            $table->integer('max_energy')->unsigned()->default($initialEnergy);
+            $table->unsignedInteger('current_hitpoints')->default($initialHitpoints);
+            $table->unsignedInteger('max_hitpoints')->default($initialHitpoints);
 
-            $table->integer('experience')->unsigned()->default(0);
+            $table->unsignedInteger('current_energy')->default($initialEnergy);
+            $table->unsignedInteger('max_energy')->default($initialEnergy);
+
+            $table->unsignedInteger('experience')->default(0);
 
             $table->string('nickname')->unique();
             $table->string('password');

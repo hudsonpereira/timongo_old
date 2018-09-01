@@ -15,6 +15,9 @@ class CreateQuestGiversTable extends Migration
     {
         Schema::create('quest_givers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('image');
+            $table->unsignedInteger('area_id');
             $table->timestamps();
         });
     }

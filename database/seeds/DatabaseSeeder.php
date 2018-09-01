@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use Faker\Factory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VocationsTableSeeder::class);
         $this->call(MonstersTableSeeder::class);
         $this->call(MonsterRespawnsTableSeeder::class);
+        $this->call(QuestGiversTableSeeder::class);
 
         if (App::environment('local')) {
             User::create([
@@ -26,6 +28,10 @@ class DatabaseSeeder extends Seeder
                 'gender' => 1,
                 'vocation_id' => 1,
             ]);
+
+            // $factory = new Factory();
+
+            factory(App\User::class, 10)->create();
         }
     }
 }
