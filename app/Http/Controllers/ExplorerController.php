@@ -22,12 +22,13 @@ class ExplorerController extends Controller
             ->get();
 
         $maps = Map::all();
+        $questGivers = $area->questGivers;
 
         $respawns = $area->respawns()
             ->whereNull('cleared_at')
             ->with('monster')->get();
 
-        return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns', 'users'));
+        return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns', 'users', 'questGivers'));
     }
 
     public function travel(Request $request, $mapId)

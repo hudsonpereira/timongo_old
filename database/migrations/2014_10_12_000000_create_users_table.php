@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('gender')->unsigned()->default(1);
-            $table->integer('level')->unsigned()->default(1);
-            $table->integer('gold')->unsigned()->default(0);
+            $table->unsignedInteger('gender')->default(1);
+            $table->unsignedInteger('level')->default(1);
+            $table->unsignedInteger('gold')->default(0);
 
             $table->unsignedInteger('armor')->nullable(); // equipment id relation
             $table->unsignedInteger('weapon_id')->nullable(); // weapon id relation

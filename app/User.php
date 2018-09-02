@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Events\UserCreated;
 
 class User extends Authenticatable
 {
@@ -27,6 +28,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+    ];
+
     protected $dates = [
         'created_at',
         'updated_at',
@@ -46,6 +56,31 @@ class User extends Authenticatable
     function vocation()
     {
         return $this->belongsTo(Vocation::class);
+    }
+
+    function arsenal()
+    {
+        return $this->belongsToMany(Equipment::class, 'user_arsenals');
+    }
+
+    function equipedArmor()
+    {
+        return $this->belongsTo(Equipment::class, 'armor');
+    }
+
+    function equipedWeapon()
+    {
+        return $this->belongsTo(Weapon::class);
+    }
+
+    function quests()
+    {
+        return $this->belongsToMany(Quest::class);
+    }
+
+    function questBooks()
+    {
+        return $this->belongsToMany(QuestBook::class, 'user_quest_books');
     }
 
     // ACESSORS AND MUTATORS

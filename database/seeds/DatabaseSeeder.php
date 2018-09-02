@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MonstersTableSeeder::class);
         $this->call(MonsterRespawnsTableSeeder::class);
         $this->call(QuestGiversTableSeeder::class);
+        $this->call(EquipmentsTableSeeder::class);
+        $this->call(QuestBookTableSeeder::class);
 
         if (App::environment('local')) {
             User::create([

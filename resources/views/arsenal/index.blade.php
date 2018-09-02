@@ -8,13 +8,16 @@
                 <div class="card-header">{{ __('Arsenal') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <h1 class="display-5">Utilizando:</h1>
+                    @if($armor)
+                        <p><img src="images/{{$armor->image}}.gif" alt="" class="img-responsive"> {{ $armor->name }}</p>
                     @endif
 
-                    You are logged in!
+                    @if($weapon)
+                        <p><img src="images/leather-armor.gif" alt="" class="img-responsive"> Roupa de Couro</p>
+                    @endif
+
+                    <h1 class="display-5">Disponível:</h1>
                 </div>
             </div>
         </div>

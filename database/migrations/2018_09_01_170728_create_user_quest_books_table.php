@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestGiversTable extends Migration
+class CreateUserQuestBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateQuestGiversTable extends Migration
      */
     public function up()
     {
-        Schema::create('quest_givers', function (Blueprint $table) {
+        Schema::create('user_quest_books', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('image');
-            $table->text('words');
-            $table->string('action');
+            $table->unsignedInteger('user_id');
             $table->unsignedInteger('quest_book_id');
-            $table->unsignedInteger('step');
-            $table->unsignedInteger('area_id');
+            $table->unsignedInteger('step')->default(1);
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateQuestGiversTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quest_givers');
+        Schema::dropIfExists('user_quest_books');
     }
 }

@@ -14,4 +14,9 @@ class Map extends Model
     {
         return  $this->hasMany(Area::class);
     }
+
+    function questGivers()
+    {
+        return $this->hasMany(QuestGiver::class);
+    }
 }
