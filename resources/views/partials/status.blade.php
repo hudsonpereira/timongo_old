@@ -73,7 +73,7 @@
                         @else
                             <form action="{{ route('revive') }}" method="POST">
                                 @csrf
-                                <button class="btn-primary">Reviver</button>
+                                <button class="btn btn-secondary">Reviver</button>
                             </form>
                         @endif
                     </div>

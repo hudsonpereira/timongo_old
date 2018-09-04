@@ -15,7 +15,10 @@ class MonsterRespawnsTableSeeder extends Seeder
     public function run()
     {
         $this->createRespawns('Gamba', 'Centro Comercial', 3, 5);
-        $this->createRespawns('Sapo Verde', 'Centro Comercial', 5, 5);
+        $this->createRespawns('Sapo verde', 'Centro Comercial', 5, 5);
+        $this->createRespawns('Sapo gigante', 'Entrada', 5, 10);
+        $this->createRespawns('Troll', 'Entrada', 3, 10);
+        $this->createRespawns('Dragão Infernal', 'Covil do Dragão Infernal', 1, 10);
     }
 
     function createRespawns($monsterName, $mapName, $howMany, $levelRange) {

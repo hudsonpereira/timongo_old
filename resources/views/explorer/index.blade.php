@@ -9,16 +9,26 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Explorar') }} - {{ $currentMap->name }}</div>
+                <div class="card-header">{{ __('Explorar') }} - {{ $currentMap->name }} ({{ $currentArea->name }})</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <p class="text-justify map-description">{{ $currentMap->description }}</p>
+
+                    <h1 class="display-5">Explorar</h1>
+
+                    <p class="text-justify">Aqui são listadas as áreas já exploradas de cada mapa.</p>
+                    <div class="row my-4">
+                        @foreach($areas as $area)
+                            <div class="col-md-9">
+                                <h4 class="display-5">{{ $area->name }}</h4>
+                            </div>
+                            <div class="col-md-3">
+                                @unless($currentArea->id == $area->id)
+                                    <button class="btn btn-secondary">Viajar</button>
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
 
                     <h1 class="display-5">Criaturas</h1>
 

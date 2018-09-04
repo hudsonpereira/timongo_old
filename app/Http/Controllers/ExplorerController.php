@@ -15,20 +15,22 @@ class ExplorerController extends Controller
     {
         $user = Auth::user();
 
-        $area = $user->area;
         $currentMap = $user->map;
+        $currentArea = $user->area;
+
+        $areas = $currentMap->areas;
         $users = User::whereMapId($currentMap->id)
             ->where('id', '!=', $user->id)
             ->get();
 
         $maps = Map::all();
-        $questGivers = $area->questGivers;
+        $questGivers = $currentArea->questGivers;
 
-        $respawns = $area->respawns()
+        $respawns = $currentArea->respawns()
             ->whereNull('cleared_at')
             ->with('monster')->get();
 
-        return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns', 'users', 'questGivers'));
+        return view('explorer.index', compact('maps', 'currentMap', 'areas', 'respawns', 'users', 'questGivers', 'currentArea'));
     }
 
     public function travel(Request $request, $mapId)
