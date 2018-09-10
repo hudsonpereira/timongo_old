@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EquipmentsTableSeeder::class);
         $this->call(QuestBookTableSeeder::class);
         $this->call(QuestsTableSeeder::class);
+        $this->call(SkillsTableSeeder::class);
 
         if (App::environment('local')) {
             User::create([

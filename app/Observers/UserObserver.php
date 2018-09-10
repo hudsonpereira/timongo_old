@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\User;
 use App\Equipment;
 use App\QuestBook;
+use App\Skill;
 
 class UserObserver
 {
@@ -17,8 +18,9 @@ class UserObserver
     public function created(User $user)
     {
         //add first armor to the arsenal
-        $user->arsenal()->attach(Equipment::LEATHER_ARMOR_ID);
+        // $user->arsenal()->attach(Equipment::LEATHER_ARMOR_ID);
 
+        $user->skills()->attach(Skill::JAB_SKILL_ID);
         $user->questBooks()->attach(QuestBook::EXPLORING_DALARAN);
     }
 

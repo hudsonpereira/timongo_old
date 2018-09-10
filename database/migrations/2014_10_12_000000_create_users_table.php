@@ -45,6 +45,10 @@ class CreateUsersTable extends Migration
 
             $table->datetime('dead_until')->nullable();
 
+            $table->unsignedInteger('first_strike')->nullable();
+            $table->unsignedInteger('cooldown_skill')->nullable();
+            $table->unsignedInteger('basic_skill')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

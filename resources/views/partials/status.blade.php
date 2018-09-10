@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-header">{{ $user->nickname . ', ' . $user->getTitle() }} <span class="float-right">Level {{ $user->level }}</span></div>
                 <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed tempore minus sit laboriosam rem laudantium ex, porro ullam! Labore, ab.</p>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed tempore minus sit laboriosam rem laudantium ex, porro ullam! Labore, ab.</p> -->
                     <div class="row">
                         <!-- Bars -->
                         <div class="col-md-5">

@@ -63,6 +63,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Equipment::class, 'user_arsenals');
     }
 
+    function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'user_skills');
+    }
+
     function equipedArmor()
     {
         return $this->belongsTo(Equipment::class, 'armor');
