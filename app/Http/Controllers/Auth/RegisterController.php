@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Vocation;
+use App\Rules\ReservedWords;
 
 class RegisterController extends Controller
 {
@@ -57,9 +58,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => ['required', 'string', 'max:255'],
             'email' => 'required|string|email|max:255|unique:users',
-            'nickname' => 'required|string|min:2|max:20|unique:users',
+            'nickname' => ['required', 'string', 'min:2', 'max:20', 'unique:users', new ReservedWords],
             'password' => 'required|string|min:6|confirmed',
             'vocation_id' => 'required|exists:vocations,id',
             'gender' => 'required|in:1,2',
