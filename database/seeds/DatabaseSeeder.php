@@ -27,13 +27,12 @@ class DatabaseSeeder extends Seeder
             User::create([
                 'email' => 'hudson.byte@gmail.com',
                 'nickname' => 'Dishark',
+                'slug' => str_slug('Dishark'),
                 'password' => bcrypt('abcd12'),
                 'name' => 'Hudson',
                 'gender' => 1,
                 'vocation_id' => 1,
             ]);
-
-            // $factory = new Factory();
 
             factory(App\User::class, 10)->create();
         }

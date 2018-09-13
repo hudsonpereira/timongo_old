@@ -29,5 +29,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/arsenal', 'ArsenalController@index')->name('arsenal');
     Route::get('/skills', 'SkillsController@index')->name('skills');
     Route::get('/inventory', 'InventoryController@index')->name('inventory');
+
+    Route::get('/{playerSlug}', 'ProfileController@show')->name('profile');
 });
 

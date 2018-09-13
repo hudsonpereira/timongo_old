@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('slug')->unique();
+            $table->string('nickname')->unique();
+
             $table->unsignedInteger('gender')->default(1);
             $table->unsignedInteger('level')->default(1);
             $table->unsignedInteger('gold')->default(0);
@@ -40,7 +43,6 @@ class CreateUsersTable extends Migration
 
             $table->unsignedInteger('experience')->default(0);
 
-            $table->string('nickname')->unique();
             $table->string('password');
 
             $table->datetime('dead_until')->nullable();

@@ -55,7 +55,7 @@
                         </div>
                         <!-- Skills -->
                         <div class="col-md-6 mt-2 mt-md-0">
-                            <img class="p-1" src="{{ asset('images/brutal-strike.png') }}" alt="Brual Strike" data-toggle="popover" title="Brual Strike" data-content="Some content inside the popover"/>
+                            <!-- <img class="p-1" src="{{ asset('images/brutal-strike.png') }}" alt="Brual Strike" data-toggle="popover" title="Brual Strike" data-content="Some content inside the popover"/> -->
                             <img class="p-1" src="{{ asset('images/front-sweep.png') }}" alt="Front Sweep" />
                         </div>
                     </div>

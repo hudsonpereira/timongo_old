@@ -78,16 +78,11 @@
                     <div class="card-header">{{ __('Jogadores neste mapa') }}</div>
 
                     <div class="card-body">
-                        <ul class="list-group">
+                        <div class="list-group">
                             @foreach($users as $user)
-                                <!-- <form action="{{ route('travel', $user->id)}}" method="POST">
-                                    @csrf -->
-                                <li class="list-group-item list-group-item-action">
-                                    {{ "{$user->nickname}, {$user->getTitle()} - Level {$user->level}" }}
-                                </li>
-                                <!-- </form> -->
+                                <a href="{{ route('profile', $user->slug) }}" class="list-group-item list-group-item-action">{{ "{$user->nickname}, {$user->getTitle()} - Level {$user->level}" }}</a>
                             @endforeach
-                        </ul>
+                        </div>
                     </div>
                 </div>
             @endif
