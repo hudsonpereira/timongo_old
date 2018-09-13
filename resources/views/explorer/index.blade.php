@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="py-2">
-    @include('partials.status', ['user' => Auth::user()])
+    @include('partials.status', compact('user'))
 </div>
 
 <div class="container">
@@ -63,11 +63,14 @@
                 <div class="card-body">
                     <div class="list-group">
                         @foreach($maps as $map)
-                            <form action="{{ route('travel', $map->id)}}" method="POST">
-                                @csrf
-
-                                <button class="list-group-item list-group-item-action {{ $currentMap->id == $map->id ? "active" : "" }}" style="cursor: pointer">{{ $map->name }}</button>
-                            </form>
+                            @if ($user->isAt($map))
+                                <button class="list-group-item list-group-item-action active" style="cursor: pointer">{{ $map->name }}</button>
+                            @else
+                                <form action="{{ route('travel', $map->id)}}" method="POST">
+                                    @csrf
+                                    <button class="list-group-item list-group-item-action" style="cursor: pointer">{{ $map->name }}</button>
+                                </form>
+                            @endif
                         @endforeach
                     </div>
                 </div>

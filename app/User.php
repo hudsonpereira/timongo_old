@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->belongsTo(Map::class);
     }
 
+    function knownMaps()
+    {
+        return $this->belongsToMany(Map::class, 'known_maps');
+    }
+
     function area()
     {
         return $this->belongsTo(Area::class);
@@ -136,5 +141,18 @@ class User extends Authenticatable
         }
 
         return $this;
+    }
+
+    function isAt($map)
+    {
+        if ($map instanceof Map) {
+            $id = $map->id;
+        } else if(is_int($map)) {
+            $id = $map;
+        } else {
+            throw new Exception("Not recognizable as a map: {$map}");
+        }
+
+        return $this->map->id == $id;
     }
 }
