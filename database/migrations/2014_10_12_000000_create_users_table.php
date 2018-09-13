@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('slug')->unique();
             $table->string('nickname')->unique();
 
+            $table->string('referal_code')->nullable();
+            $table->string('refered_by')->nullable();
+
             $table->unsignedInteger('gender')->default(1);
             $table->unsignedInteger('level')->default(1);
             $table->unsignedInteger('gold')->default(0);
