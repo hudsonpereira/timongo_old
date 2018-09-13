@@ -63,7 +63,7 @@
                 <div class="card-body">
                     <div class="list-group">
                         @foreach($maps as $map)
-                            @if ($user->isAt($map))
+                            @if ($user->isAtMap($map))
                                 <button class="list-group-item list-group-item-action active" style="cursor: pointer">{{ $map->name }}</button>
                             @else
                                 <form action="{{ route('travel', $map->id)}}" method="POST">

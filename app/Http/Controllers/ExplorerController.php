@@ -18,7 +18,7 @@ class ExplorerController extends Controller
         $currentMap = $user->map;
         $currentArea = $user->area;
 
-        $areas = $currentMap->areas;
+        $areas = $user->knownAreas;
         $users = User::whereMapId($currentMap->id)
             ->where('id', '!=', $user->id)
             ->get();

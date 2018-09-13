@@ -7,6 +7,7 @@ use App\Equipment;
 use App\QuestBook;
 use App\Skill;
 use App\Map;
+use App\Area;
 
 class UserObserver
 {
@@ -23,6 +24,7 @@ class UserObserver
 
         $user->skills()->attach(Skill::JAB_SKILL_ID);
         $user->knownMaps()->attach(Map::DALARAN_MAP_ID);
+        $user->knownAreas()->attach(Area::DALARAN_DOWNTOWN);
         $user->questBooks()->attach(QuestBook::EXPLORING_DALARAN);
     }
 

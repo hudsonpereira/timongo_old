@@ -58,6 +58,11 @@ class User extends Authenticatable
         return $this->belongsTo(Area::class);
     }
 
+    function knownAreas()
+    {
+        return $this->belongsToMany(Area::class, 'known_areas');
+    }
+
     function vocation()
     {
         return $this->belongsTo(Vocation::class);
@@ -143,7 +148,7 @@ class User extends Authenticatable
         return $this;
     }
 
-    function isAt($map)
+    function isAtMap($map)
     {
         if ($map instanceof Map) {
             $id = $map->id;
