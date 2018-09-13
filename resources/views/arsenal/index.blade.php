@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mt-sm-3">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Equipados</div>
                 <div class="card-body">
