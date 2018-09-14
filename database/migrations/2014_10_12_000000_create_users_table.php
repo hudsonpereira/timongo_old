@@ -30,7 +30,10 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('level')->default(1);
             $table->unsignedInteger('gold')->default(0);
 
+            $table->unsignedInteger('helmet')->nullable(); // equipment id relation
             $table->unsignedInteger('armor')->nullable(); // equipment id relation
+            $table->unsignedInteger('legs')->nullable(); // equipment id relation
+            $table->unsignedInteger('boots')->nullable(); // equipment id relation
             $table->unsignedInteger('weapon_id')->nullable(); // weapon id relation
 
             $table->unsignedInteger('attack')->default(1);

@@ -19,11 +19,12 @@ class ExplorerController extends Controller
         $currentArea = $user->area;
 
         $areas = $user->knownAreas;
+        $maps = $user->knownMaps;
+
         $users = User::whereMapId($currentMap->id)
             ->where('id', '!=', $user->id)
             ->get();
 
-        $maps = $user->knownMaps;
         $questGivers = $currentArea->questGivers;
 
         $respawns = $currentArea->respawns()
